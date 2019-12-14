@@ -26,11 +26,11 @@ stages:
             inputs:
               packageType: 'sdk'
               version: '3.1.100'
-          - script: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+          - script: dotnet test ./Translator.sln --logger trx --collect:"XPlat Code Coverage"
           - task: PublishCodeCoverageResults@1
             inputs:
-              codeCoverageTool: opencover
-              summaryFileLocation: '**/coverage.opencover.xml'
+              codeCoverageTool: cobertura
+              summaryFileLocation: '**/coverage.cobertura.xml'
   - stage: analyze
     jobs:
       - job:
@@ -47,7 +47,7 @@ stages:
               /k:ccc-translator \
               /d:sonar.login=$SONAR_TOKEN \
               /d:sonar.host.url=https://sonarcloud.io/ \
-              /d:sonar.cs.opencover.reportsPaths=**/TestResults/*/coverage.opencover.xml \
+              /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
               /o:ccc-p2
               dotnet build ./Translator.sln
