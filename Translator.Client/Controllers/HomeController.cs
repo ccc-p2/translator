@@ -36,10 +36,6 @@ namespace Translator.Client.Controllers
 
         public IActionResult MessageBoard()
         {
-        if(HttpContext.Session.GetInt32("SessionKeyUserId") ==null)
-          {
-            return RedirectToAction("LogIn", "User");
-          }
             List<Message> allMessages = _mr.Read();
             ViewBag.Messages = allMessages;
             return View();

@@ -6,11 +6,17 @@
 <div class="text-center">
     <h1 class="display-4">Message Board</h1>
 
-    @foreach(Message m in ViewBag.Messages)
-    {
-      <h5>Message: @m.Content </h5>
-      <h5>Date: @m.MessageDateTime </h5>
-      <a href="Message/@m.Id"> View Message</a>
-      <br>
-    }
+            @foreach(Message m in ViewBag.Messages)
+        {
+         <div class="card">
+            <div class="card-body">
+              <h5>Message: @m.Content </h5>
+              <p>Date: @m.MessageDateTime </p>
+              <a href="Message/@m.Id"> View Message</a>
+            </div>
+          </div>
+        }
+
+
 </div>
+
