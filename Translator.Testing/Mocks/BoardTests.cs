@@ -12,7 +12,7 @@ namespace Translator.Testing.Mocks
           //Arrange
           string testMessage = "valid message";
           string spanishMessage = "mensaje válido";
-          Message input = new Message(testMessage);
+          Message input = new Message(testMessage); 
 
           //Act out
           input.TranslateTo("Spanish");
