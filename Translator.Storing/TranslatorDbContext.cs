@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Translator.Storing.Models;
@@ -26,12 +27,13 @@ namespace Translator.Storing
         new User(){ Id = 1, Username = "sergio", Password="12345678", Language="Spanish"},
         new User(){ Id = 2, Username = "john", Password="12345678", Language="English"},
         new User(){ Id = 3, Username = "herman", Password="12345678", Language="French"},
-      },
-      new List<Message>()
+      });
+
+      builder.Entity<Message>().HasData(new List<Message>()
       {
-        new Message(){ Id = 1, UserId = 2, Content = "First Message"},
-        new Message(){ Id = 2, UserId = 3, Content = "Second Message"},
-        new Message(){ Id = 3, UserId = 2, Content = "Third Message"}
+        new Message(){ Id = 1, UserId = 2, Content = "First Message", MessageDateTime = DateTime.Now},
+        new Message(){ Id = 2, UserId = 3, Content = "Second Message", MessageDateTime = DateTime.Now},
+        new Message(){ Id = 3, UserId = 2, Content = "Third Message", MessageDateTime = DateTime.Now}
       });
 
 
