@@ -1,0 +1,682 @@
+{
+  "Translator.Domain.dll": {
+    "C:\\Users\\sergi\\Documents\\GitHub\\translator\\Translator.Domain\\Models\\Message.cs": {
+      "Translator.Domain.Models.Message": {
+        "System.Int32 Translator.Domain.Models.Message::get_Id()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.String Translator.Domain.Models.Message::get_Content()": {
+          "Lines": {
+            "14": 4
+          },
+          "Branches": []
+        },
+        "System.String Translator.Domain.Models.Message::get_TranslatedContent()": {
+          "Lines": {
+            "15": 6
+          },
+          "Branches": []
+        },
+        "System.DateTime Translator.Domain.Models.Message::get_MessageDateTime()": {
+          "Lines": {
+            "16": 2
+          },
+          "Branches": []
+        },
+        "System.String Translator.Domain.Models.Message::TranslateTo(System.String)": {
+          "Lines": {
+            "18": 2,
+            "19": 2,
+            "20": 2,
+            "21": 2,
+            "22": 2
+          },
+          "Branches": []
+        },
+        "System.Void Translator.Domain.Models.Message::.ctor()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Void Translator.Domain.Models.Message::.ctor(System.String)": {
+          "Lines": {
+            "8": 2,
+            "9": 2,
+            "10": 2,
+            "11": 2,
+            "12": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\sergi\\Documents\\GitHub\\translator\\Translator.Domain\\Models\\Translator.cs": {
+      "Translator.Domain.Models.TranslationResult": {
+        "Translator.Domain.Models.DetectedLanguage Translator.Domain.Models.TranslationResult::get_DetectedLanguage()": {
+          "Lines": {
+            "15": 6
+          },
+          "Branches": []
+        },
+        "Translator.Domain.Models.TextResult Translator.Domain.Models.TranslationResult::get_SourceText()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "Translator.Domain.Models.Translation[] Translator.Domain.Models.TranslationResult::get_Translations()": {
+          "Lines": {
+            "17": 9
+          },
+          "Branches": []
+        }
+      },
+      "Translator.Domain.Models.DetectedLanguage": {
+        "System.String Translator.Domain.Models.DetectedLanguage::get_Language()": {
+          "Lines": {
+            "22": 3
+          },
+          "Branches": []
+        },
+        "System.Single Translator.Domain.Models.DetectedLanguage::get_Score()": {
+          "Lines": {
+            "23": 3
+          },
+          "Branches": []
+        }
+      },
+      "Translator.Domain.Models.TextResult": {
+        "System.String Translator.Domain.Models.TextResult::get_Text()": {
+          "Lines": {
+            "28": 0
+          },
+          "Branches": []
+        },
+        "System.String Translator.Domain.Models.TextResult::get_Script()": {
+          "Lines": {
+            "29": 0
+          },
+          "Branches": []
+        }
+      },
+      "Translator.Domain.Models.Translation": {
+        "System.String Translator.Domain.Models.Translation::get_Text()": {
+          "Lines": {
+            "34": 6
+          },
+          "Branches": []
+        },
+        "Translator.Domain.Models.TextResult Translator.Domain.Models.Translation::get_Transliteration()": {
+          "Lines": {
+            "35": 0
+          },
+          "Branches": []
+        },
+        "System.String Translator.Domain.Models.Translation::get_To()": {
+          "Lines": {
+            "36": 3
+          },
+          "Branches": []
+        },
+        "Translator.Domain.Models.Alignment Translator.Domain.Models.Translation::get_Alignment()": {
+          "Lines": {
+            "37": 0
+          },
+          "Branches": []
+        },
+        "Translator.Domain.Models.SentenceLength Translator.Domain.Models.Translation::get_SentLen()": {
+          "Lines": {
+            "38": 0
+          },
+          "Branches": []
+        }
+      },
+      "Translator.Domain.Models.Alignment": {
+        "System.String Translator.Domain.Models.Alignment::get_Proj()": {
+          "Lines": {
+            "43": 0
+          },
+          "Branches": []
+        }
+      },
+      "Translator.Domain.Models.SentenceLength": {
+        "System.Int32[] Translator.Domain.Models.SentenceLength::get_SrcSentLen()": {
+          "Lines": {
+            "48": 0
+          },
+          "Branches": []
+        },
+        "System.Int32[] Translator.Domain.Models.SentenceLength::get_TransSentLen()": {
+          "Lines": {
+            "49": 0
+          },
+          "Branches": []
+        }
+      },
+      "Translator.Domain.Models.Translator": {
+        "System.String Translator.Domain.Models.Translator::GetLanguageCode(System.String)": {
+          "Lines": {
+            "108": 7,
+            "109": 7,
+            "110": 7,
+            "112": 7,
+            "113": 7,
+            "114": 7,
+            "116": 7,
+            "118": 7,
+            "120": 7,
+            "121": 7,
+            "122": 7,
+            "124": 7,
+            "126": 917,
+            "127": 448,
+            "128": 2240,
+            "129": 448,
+            "130": 448,
+            "131": 448,
+            "132": 448,
+            "133": 7,
+            "134": 7,
+            "135": 4,
+            "136": 4,
+            "138": 3,
+            "139": 7
+          },
+          "Branches": [
+            {
+              "Line": 124,
+              "Offset": 108,
+              "EndOffset": 112,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 124,
+              "Offset": 108,
+              "EndOffset": 159,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 7
+            },
+            {
+              "Line": 126,
+              "Offset": 189,
+              "EndOffset": 193,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 126,
+              "Offset": 189,
+              "EndOffset": 229,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 7
+            },
+            {
+              "Line": 126,
+              "Offset": 975,
+              "EndOffset": 263,
+              "Path": 1,
+              "Ordinal": 23,
+              "Hits": 448
+            },
+            {
+              "Line": 128,
+              "Offset": 279,
+              "EndOffset": 283,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
+            },
+            {
+              "Line": 128,
+              "Offset": 279,
+              "EndOffset": 319,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 448
+            },
+            {
+              "Line": 128,
+              "Offset": 938,
+              "EndOffset": 353,
+              "Path": 1,
+              "Ordinal": 21,
+              "Hits": 448
+            },
+            {
+              "Line": 130,
+              "Offset": 368,
+              "EndOffset": 372,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 2
+            },
+            {
+              "Line": 130,
+              "Offset": 368,
+              "EndOffset": 444,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 448
+            },
+            {
+              "Line": 130,
+              "Offset": 465,
+              "EndOffset": 469,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 2
+            },
+            {
+              "Line": 130,
+              "Offset": 465,
+              "EndOffset": 517,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 448
+            },
+            {
+              "Line": 130,
+              "Offset": 537,
+              "EndOffset": 541,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 1
+            },
+            {
+              "Line": 130,
+              "Offset": 537,
+              "EndOffset": 589,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 448
+            },
+            {
+              "Line": 130,
+              "Offset": 609,
+              "EndOffset": 613,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 2
+            },
+            {
+              "Line": 130,
+              "Offset": 609,
+              "EndOffset": 660,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 448
+            },
+            {
+              "Line": 130,
+              "Offset": 697,
+              "EndOffset": 701,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 1
+            },
+            {
+              "Line": 130,
+              "Offset": 697,
+              "EndOffset": 749,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 448
+            },
+            {
+              "Line": 130,
+              "Offset": 769,
+              "EndOffset": 773,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 1
+            },
+            {
+              "Line": 130,
+              "Offset": 769,
+              "EndOffset": 821,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 448
+            },
+            {
+              "Line": 130,
+              "Offset": 841,
+              "EndOffset": 845,
+              "Path": 1,
+              "Ordinal": 19,
+              "Hits": 1
+            },
+            {
+              "Line": 130,
+              "Offset": 841,
+              "EndOffset": 892,
+              "Path": 0,
+              "Ordinal": 18,
+              "Hits": 448
+            },
+            {
+              "Line": 128,
+              "Offset": 938,
+              "EndOffset": 943,
+              "Path": 0,
+              "Ordinal": 20,
+              "Hits": 448
+            },
+            {
+              "Line": 126,
+              "Offset": 975,
+              "EndOffset": 980,
+              "Path": 0,
+              "Ordinal": 22,
+              "Hits": 7
+            },
+            {
+              "Line": 134,
+              "Offset": 1042,
+              "EndOffset": 1044,
+              "Path": 0,
+              "Ordinal": 24,
+              "Hits": 4
+            },
+            {
+              "Line": 134,
+              "Offset": 1042,
+              "EndOffset": 1056,
+              "Path": 1,
+              "Ordinal": 25,
+              "Hits": 3
+            }
+          ]
+        },
+        "System.Void Translator.Domain.Models.Translator::.cctor()": {
+          "Lines": {
+            "56": 1,
+            "60": 1,
+            "64": 1,
+            "65": 1,
+            "66": 0,
+            "67": 0,
+            "69": 1,
+            "70": 0,
+            "71": 0,
+            "73": 1
+          },
+          "Branches": [
+            {
+              "Line": 65,
+              "Offset": 31,
+              "EndOffset": 33,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 65,
+              "Offset": 31,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 69,
+              "Offset": 55,
+              "EndOffset": 57,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 69,
+              "Offset": 55,
+              "EndOffset": 69,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Translator.Domain.Models.Translator/<TranslateTextRequest>d__5": {
+        "System.Void Translator.Domain.Models.Translator/<TranslateTextRequest>d__5::MoveNext()": {
+          "Lines": {
+            "76": 3,
+            "77": 3,
+            "78": 3,
+            "80": 3,
+            "81": 3,
+            "82": 3,
+            "84": 3,
+            "85": 3,
+            "86": 3,
+            "87": 3,
+            "90": 3,
+            "92": 3,
+            "93": 3,
+            "95": 12,
+            "96": 3,
+            "98": 12,
+            "99": 3,
+            "100": 3,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 3
+          },
+          "Branches": [
+            {
+              "Line": 80,
+              "Offset": 73,
+              "EndOffset": 79,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 80,
+              "Offset": 73,
+              "EndOffset": 90,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            },
+            {
+              "Line": 81,
+              "Offset": 92,
+              "EndOffset": 96,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 3
+            },
+            {
+              "Line": 81,
+              "Offset": 98,
+              "EndOffset": 112,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 3
+            },
+            {
+              "Line": 90,
+              "Offset": 264,
+              "EndOffset": 266,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 3
+            },
+            {
+              "Line": 81,
+              "Offset": 92,
+              "EndOffset": 306,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 3
+            },
+            {
+              "Line": 90,
+              "Offset": 264,
+              "EndOffset": 334,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 3
+            },
+            {
+              "Line": 92,
+              "Offset": 396,
+              "EndOffset": 468,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 3
+            },
+            {
+              "Line": 95,
+              "Offset": 685,
+              "EndOffset": 542,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 3
+            },
+            {
+              "Line": 98,
+              "Offset": 640,
+              "EndOffset": 589,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 3
+            }
+          ]
+        }
+      },
+      "Translator.Domain.Models.Translator/<Translate>d__7": {
+        "System.Void Translator.Domain.Models.Translator/<Translate>d__7::MoveNext()": {
+          "Lines": {
+            "141": 7,
+            "142": 7,
+            "143": 7,
+            "144": 4,
+            "145": 3,
+            "146": 3,
+            "147": 3,
+            "148": 1,
+            "149": 2,
+            "150": 7
+          },
+          "Branches": [
+            {
+              "Line": 143,
+              "Offset": 51,
+              "EndOffset": 53,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 4
+            },
+            {
+              "Line": 143,
+              "Offset": 51,
+              "EndOffset": 66,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            },
+            {
+              "Line": 143,
+              "Offset": 69,
+              "EndOffset": 71,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 4
+            },
+            {
+              "Line": 143,
+              "Offset": 69,
+              "EndOffset": 78,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 3
+            },
+            {
+              "Line": 146,
+              "Offset": 150,
+              "EndOffset": 220,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 3
+            },
+            {
+              "Line": 147,
+              "Offset": 273,
+              "EndOffset": 275,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 1
+            },
+            {
+              "Line": 147,
+              "Offset": 273,
+              "EndOffset": 279,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 2
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\sergi\\Documents\\GitHub\\translator\\Translator.Domain\\Models\\User.cs": {
+      "Translator.Domain.Models.User": {
+        "System.Int32 Translator.Domain.Models.User::get_UserId()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.String Translator.Domain.Models.User::get_Username()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.String Translator.Domain.Models.User::get_Password()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.String Translator.Domain.Models.User::get_Language()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<Translator.Domain.Models.Message> Translator.Domain.Models.User::get_Messages()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Void Translator.Domain.Models.User::.ctor()": {
+          "Lines": {
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "22": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}

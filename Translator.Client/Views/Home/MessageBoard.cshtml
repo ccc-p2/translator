@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@using Translator.Domain.Models
+
+<div class="text-center">
+    <h1 class="display-4">Message Board</h1>
+
+    @foreach(Message m in ViewBag.Messages)
+    {
+      <h5>Message: @m.Content </h5>
+      <h5>Date: @m.MessageDateTime </h5>
+      <a href="Message/@m.Id"> View Message</a>
+      <br>
+    }
+</div>

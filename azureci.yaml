@@ -1,0 +1,66 @@
+name: $(date:yyyyMMdd)$(rev:.rr) #20191209.10
+
+trigger:
+  - master
+
+
+stages:
+  - stage: compile
+    jobs:
+      - job: aspnet
+        pool:
+          vmImage: ubuntu-18.04
+        steps:
+          - script: dotnet build translator/Translator.sln
+  - stage: test
+    jobs:
+      - job: aspnet_test
+        pool:
+          vmImage: ubuntu-18.04
+        steps:
+          - script: dotnet test translator/Translator.sln --logger trx --collect:"XPlat Code Coverage"
+          - task: PublishCodeCoverageResults@1
+            inputs:
+              codeCoverageTool: cobertura
+              summaryFileLocation: '**/TestResults/coverage.cobertura.xml'
+  - stage: analyze
+    jobs:
+      - job:
+        pool:
+          vmImage: ubuntu-18.04
+        steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: '3.1.100'
+          - script: dotnet tool install --global dotnet-sonarscanner
+          - script: |
+              dotnet sonarscanner begin \
+              /k:devops-John \
+              /d:sonar.login=$SONAR_TOKEN \
+              /d:sonar.host.url=https://sonarcloud.io/ \
+              /d:sonar.cs.operator.reportsPaths=**/TestResults/*/coverage.cobertura.xml \
+              /d:sonar.cs.vstest.reportsPaths=**/*.trx \
+              /o:jharv94
+              dotnet build translator/Translator.sln
+              dotnet test translator/Translator.sln --logger trx
+              dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
+            env:
+              SONAR_TOKEN: $(SONAR_LOGIN)
+
+  - stage: pack
+    jobs:
+      - job:
+        pool:
+          vmImage: ubuntu-18.04
+        steps:
+          - script: docker image build -f translator/dockerfile -t jharv94/translatortest:$BUILD_NAME ./translator
+            env:
+              BUILD_NAME: $(Build.DefinitionName)
+          - script: docker login --username $DOCKER_USER --password $DOCKER_TOKEN
+            env:
+              DOCKER_TOKEN: $(docker.token)
+              DOCKER_USER: $(docker.user)
+          - script: docker image push jharv94/translatortest:$BUILD_NAME
+            env:
+              BUILD_NAME: $(Build.DefinitionName)
