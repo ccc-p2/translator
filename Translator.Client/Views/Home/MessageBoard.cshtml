@@ -1,16 +1,33 @@
+@model Translator.Client.Models.MessageViewModel
+
 @{
     ViewData["Title"] = "Home Page";
 }
-@using Translator.Domain.Models
 
-<div class="text-center">
+
     <h1 class="display-4">Message Board</h1>
-
-    @foreach(Message m in ViewBag.Messages)
-    {
-      <h5>Message: @m.Content </h5>
-      <h5>Date: @m.MessageDateTime </h5>
-      <a href="Message/@m.Id"> View Message</a>
-      <br>
-    }
+<div class="text-left">
+        @foreach(var m in ViewBag.Messages)
+        {
+         <div class="card">
+            <div class="card-body">
+              <h5>Message: @m.Content </h5>
+              <p>Date: @m.MessageDateTime </p>
+              <a href="Message/@m.Id"> View Message</a>
+            </div>
+          </div>
+        }
 </div>
+
+<div class="text-left">
+    <form action="/Home/CreateMessage" method="post">
+        <div class="form-group">
+          <br>
+          <label for="exampleFormControlTextarea1">Create New Message</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="2"></textarea>
+        </div>
+
+         <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>  

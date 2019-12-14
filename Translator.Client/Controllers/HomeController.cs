@@ -36,14 +36,21 @@ namespace Translator.Client.Controllers
 
         public IActionResult MessageBoard()
         {
-        if(HttpContext.Session.GetInt32("SessionKeyUserId") ==null)
-          {
-            return RedirectToAction("LogIn", "User");
-          }
             List<Message> allMessages = _mr.Read();
             ViewBag.Messages = allMessages;
             return View();
         }
+        [HttpPost]
+        public IActionResult CreateMessage(MessageViewModel message)
+        {
+          if(ModelState.IsValid)
+          {
+            return RedirectToAction("MessageBoard","Home");
+          }
+          return RedirectToAction("MessageBoard", "Home");
+        }
+
+
         [HttpGet("{id}")]
         public IActionResult Message(int id)
         {
