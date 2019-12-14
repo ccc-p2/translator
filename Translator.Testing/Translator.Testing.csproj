@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Translator.Domain\Translator.Domain.csproj" />
     <ProjectReference Include="..\Translator.Storing\Translator.Storing.csproj" />
+    <ProjectReference Include="..\Translator.Client\Translator.Client.csproj" />
   </ItemGroup>
 
 </Project>
