@@ -62,7 +62,7 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: docker image build -f ./dockerfile -t cccp2/translator:$BUILD_NAME ./ccctranslator
+          - script: docker image build -f ./dockerfile -t cccp2/translator:$BUILD_NAME .
             env:
               BUILD_NAME: $(Build.DefinitionName)
           - script: docker login --username $DOCKER_USER --password $DOCKER_TOKEN
