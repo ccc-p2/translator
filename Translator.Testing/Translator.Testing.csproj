@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Translator.Domain\Translator.Domain.csproj" />
+    <ProjectReference Include="..\Translator.Storing\Translator.Storing.csproj" />
   </ItemGroup>
 
 </Project>

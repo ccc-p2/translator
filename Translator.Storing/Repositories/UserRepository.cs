@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
-using Translator.Domain.Models;
+using Translator.Storing.Models;
 
 namespace Translator.Storing.Repositories
 {
   public class UserRepository
   {
+    private static readonly TranslatorDbContext dbContext = new TranslatorDbContext();
     private const string _path = @"./Translator.Client/users.xml";
     private List<User> _userLibrary;
     public List<User> UserLibrary 
@@ -32,6 +33,11 @@ namespace Translator.Storing.Repositories
       }
     }
 
+    public List<User> GetAllUsers()
+    {
+      return dbContext.User.ToList();
+    } 
+
     public void Create()
     {
 
@@ -53,7 +59,7 @@ namespace Translator.Storing.Repositories
             _userLibrary = new List<User>();
 
             User userInfo = new User();
-            userInfo.UserId = 456454334;
+            // userInfo.UserId = 456454334;
             userInfo.Username = "John";
             userInfo.Password = "12345678";
             userInfo.Language = "English";
@@ -78,7 +84,7 @@ namespace Translator.Storing.Repositories
     }
     private void Save()
     {
-      //FileAdapter.WriteToXml<List<User>>(_userLibrary, _path);
+
     }
     public void Update(User user)
     {
