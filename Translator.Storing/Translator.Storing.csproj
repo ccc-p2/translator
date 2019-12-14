@@ -4,6 +4,15 @@
     <ProjectReference Include="..\Translator.Domain\Translator.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="microsoft.entityframeworkcore.design" Version="3.1.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="npgsql.entityframeworkcore.postgresql" Version="3.1.0" />
+    <PackageReference Include="npgsql.entityframeworkcore.postgresql.design" Version="1.1.1" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
