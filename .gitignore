@@ -39,6 +39,9 @@ bld/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
+# coverlet
+TestResults/
+
 # MSTest test Results
 [Bb]uild[Ll]og.*
 
