@@ -65,7 +65,7 @@ namespace Translator.Client.Controllers
             tempUser.Username = model.Username;
             tempUser.Password = model.Password;
             tempUser.Language = model.Language;
-            _user.Add(tempUser);
+            // _user.Add(tempUser);
             return RedirectToAction("Home", "Users");
           }
           return View();
@@ -85,8 +85,8 @@ namespace Translator.Client.Controllers
         public IActionResult Login(UserViewModel user)
         {
           User isUserValid = new User();
-          isUserValid = _user.CheckForUser(user.Username, user.Password);
-          //isUserValid = _db.User.Single(u => u.Username == user.Username && u.Password == user.Password);          
+          // isUserValid = _user.CheckForUser(user.Username, user.Password);
+          // isUserValid = _db.User.Single(u => u.Username == user.Username && u.Password == user.Password);          
           
           if(isUserValid != null)
           {
