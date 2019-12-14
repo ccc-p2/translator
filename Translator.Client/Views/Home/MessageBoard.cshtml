@@ -1,12 +1,13 @@
+@model Translator.Client.Models.MessageViewModel
 
 @{
     ViewData["Title"] = "Home Page";
 }
-@using Translator.Domain.Models
+
 
     <h1 class="display-4">Message Board</h1>
 <div class="text-left">
-        @foreach(Message m in ViewBag.Messages)
+        @foreach(var m in ViewBag.Messages)
         {
          <div class="card">
             <div class="card-body">
