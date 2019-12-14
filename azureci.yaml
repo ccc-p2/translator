@@ -11,14 +11,14 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: dotnet build translator/Translator.sln
+          - script: dotnet build ./Translator.sln
   - stage: test
     jobs:
       - job: aspnet_test
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: dotnet test translator/Translator.sln --logger trx --collect:"XPlat Code Coverage"
+          - script: dotnet test ./Translator.sln --logger trx --collect:"XPlat Code Coverage"
           - task: PublishCodeCoverageResults@1
             inputs:
               codeCoverageTool: cobertura
@@ -42,8 +42,8 @@ stages:
               /d:sonar.cs.operator.reportsPaths=**/TestResults/*/coverage.cobertura.xml \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
               /o:jharv94
-              dotnet build translator/Translator.sln
-              dotnet test translator/Translator.sln --logger trx
+              dotnet build ./Translator.sln
+              dotnet test ./Translator.sln --logger trx
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
             env:
               SONAR_TOKEN: $(SONAR_LOGIN)
@@ -54,13 +54,13 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: docker image build -f translator/dockerfile -t jharv94/translatortest:$BUILD_NAME ./translator
+          - script: docker image build -f ./dockerfile -t cccp2/translator:$BUILD_NAME
             env:
               BUILD_NAME: $(Build.DefinitionName)
           - script: docker login --username $DOCKER_USER --password $DOCKER_TOKEN
             env:
               DOCKER_TOKEN: $(docker.token)
               DOCKER_USER: $(docker.user)
-          - script: docker image push jharv94/translatortest:$BUILD_NAME
+          - script: docker image push cccp2/translator:$BUILD_NAME
             env:
               BUILD_NAME: $(Build.DefinitionName)
