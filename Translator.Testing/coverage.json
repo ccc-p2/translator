@@ -1,6 +1,6 @@
 {
   "Translator.Domain.dll": {
-    "C:\\Users\\sergi\\Documents\\GitHub\\translator\\Translator.Domain\\Models\\Message.cs": {
+    "c:\\Users\\studio pc\\revature_project\\ccctranslator\\Translator.Domain\\Models\\Message.cs": {
       "Translator.Domain.Models.Message": {
         "System.Int32 Translator.Domain.Models.Message::get_Id()": {
           "Lines": {
@@ -54,7 +54,7 @@
         }
       }
     },
-    "C:\\Users\\sergi\\Documents\\GitHub\\translator\\Translator.Domain\\Models\\Translator.cs": {
+    "c:\\Users\\studio pc\\revature_project\\ccctranslator\\Translator.Domain\\Models\\Translator.cs": {
       "Translator.Domain.Models.TranslationResult": {
         "Translator.Domain.Models.DetectedLanguage Translator.Domain.Models.TranslationResult::get_DetectedLanguage()": {
           "Lines": {
@@ -305,7 +305,7 @@
               "EndOffset": 613,
               "Path": 1,
               "Ordinal": 13,
-              "Hits": 2
+              "Hits": 1
             },
             {
               "Line": 130,
@@ -321,7 +321,7 @@
               "EndOffset": 701,
               "Path": 1,
               "Ordinal": 15,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 130,
@@ -337,7 +337,7 @@
               "EndOffset": 773,
               "Path": 1,
               "Ordinal": 17,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 130,
@@ -353,7 +353,7 @@
               "EndOffset": 845,
               "Path": 1,
               "Ordinal": 19,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 130,
@@ -631,7 +631,7 @@
         }
       }
     },
-    "C:\\Users\\sergi\\Documents\\GitHub\\translator\\Translator.Domain\\Models\\User.cs": {
+    "c:\\Users\\studio pc\\revature_project\\ccctranslator\\Translator.Domain\\Models\\User.cs": {
       "Translator.Domain.Models.User": {
         "System.Int32 Translator.Domain.Models.User::get_UserId()": {
           "Lines": {
