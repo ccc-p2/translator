@@ -5,16 +5,16 @@ namespace Translator.Testing.Storing
 {
   public class UserRepositoryUnitTest
   {
-    [Fact]
-    public void Test_GetAllUsers()
-    {
-      // arrange
-      UserRepository ur = new UserRepository();
+    // [Fact]
+    // public void Test_GetAllUsers()
+    // {
+    //   // arrange
+    //   UserRepository ur = new UserRepository();
 
-      // act
+    //   // act
 
-      // assert
-      Assert.NotEmpty(ur.GetAllUsers());
-    }
+    //   // assert
+    //   Assert.NotEmpty(ur.GetAllUsers());
+    // }
   }
 }
