@@ -44,12 +44,12 @@ stages:
           - script: dotnet tool install --global dotnet-sonarscanner
           - script: |
               dotnet sonarscanner begin \
-              /k:devops-John \
+              /k:ccc-translator \
               /d:sonar.login=$SONAR_TOKEN \
               /d:sonar.host.url=https://sonarcloud.io/ \
-              /d:sonar.cs.operator.reportsPaths=./TestResults/*/coverage.cobertura.xml \
-              /d:sonar.cs.vstest.reportsPaths=./*.trx \
-              /o:jharv94
+              /d:sonar.cs.operator.reportsPaths=**/TestResults/*/coverage.cobertura.xml \
+              /d:sonar.cs.vstest.reportsPaths=**/*.trx \
+              /o:ccc-p2
               dotnet build ./Translator.sln
               dotnet test ./Translator.sln --logger trx
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
