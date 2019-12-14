@@ -34,7 +34,7 @@ namespace Translator.Client.Controllers
             return View();
         }
 
-        public IActionResult MessageBoard()
+        public IActionResult MessageBoard(Message message)
         {
             List<Message> allMessages = _mr.Read();
             ViewBag.Messages = allMessages;
