@@ -9,7 +9,7 @@ namespace Translator.Domain.Models
 {
   /// <summary>
   /// The C# classes that represents the JSON returned by the Translator Text API.
-  /// </summary>
+  /// </summary> 
   public class TranslationResult
   {
       public DetectedLanguage DetectedLanguage { get; set; }
