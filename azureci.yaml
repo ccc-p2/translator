@@ -30,7 +30,7 @@ stages:
           - task: PublishCodeCoverageResults@1
             inputs:
               codeCoverageTool: cobertura
-              summaryFileLocation: '**/TestResults/coverage.cobertura.xml'
+              summaryFileLocation: '**/TestResults/*/coverage.cobertura.xml'
   - stage: analyze
     jobs:
       - job:
