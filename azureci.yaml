@@ -1,4 +1,4 @@
-name: $(date:yyyyMMdd)$(rev:.rr) #20191209.10
+name: $(date:yyyyMMdd)$(rev:.rr) #20191214.10
 
 trigger:
   - master
