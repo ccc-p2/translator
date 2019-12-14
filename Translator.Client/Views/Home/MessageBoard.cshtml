@@ -3,9 +3,8 @@
 }
 @using Translator.Domain.Models
 
-<div class="text-center">
     <h1 class="display-4">Message Board</h1>
-
+<div class="text-left">
             @foreach(Message m in ViewBag.Messages)
         {
          <div class="card">
@@ -16,7 +15,17 @@
             </div>
           </div>
         }
-
-
 </div>
 
+<div class="text-left">
+    <form action="/Home/CreateMessage" method="post">
+        <div class="form-group">
+          <br>
+          <label for="exampleFormControlTextarea1">Create New Message</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+        </div>
+
+         <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
