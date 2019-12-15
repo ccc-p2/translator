@@ -39,7 +39,7 @@ stages:
               /k:ccc-translator \
               /d:sonar.login=$SONAR_TOKEN \
               /d:sonar.host.url=https://sonarcloud.io/ \
-              /d:sonar.javascript.exclusions=**/Translator.Client/wwwroot \
+              /d:sonar.javascript.exclusions=**/Translator.Client/wwwroot/** \
               /d:sonar.cs.opencover.reportsPaths=**/Translator.Testing/coverage.opencover.xml \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
               /o:ccc-p2
