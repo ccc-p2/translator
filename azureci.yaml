@@ -41,13 +41,13 @@ stages:
             inputs:
               packageType: 'sdk'
               version: '3.1.100'
-          - script: dotnet tool install --global dotnet-sonarscanner
+          - script: dotnet tool install --global dotnet-sonarscanner --version 4.7.1
           - script: |
               dotnet sonarscanner begin \
               /k:ccc-translator \
               /d:sonar.login=$SONAR_TOKEN \
               /d:sonar.host.url=https://sonarcloud.io/ \
-              /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml \
+              /d:sonar.cs.opencover.reportsPaths=**/TestResults/*/coverage.opencover.xml \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
               /o:ccc-p2
               dotnet build ./Translator.sln
