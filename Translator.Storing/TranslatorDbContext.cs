@@ -16,13 +16,6 @@ namespace Translator.Storing
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-      List<User> userSeedData = new List<User>()
-      {
-        new User(){ UserId = 1, Username = "sergio", Password="12345678", Language="Spanish"},
-        new User(){ UserId = 2, Username = "john", Password="12345678", Language="English"},
-        new User(){ UserId = 3, Username = "herman", Password="12345678", Language="French"},
-      };
-
       builder.Entity<User>(o => o.HasKey(k => k.UserId));
       builder.Entity<User>().Property(p => p.UserId).UseSerialColumn().ValueGeneratedOnAdd();
 
