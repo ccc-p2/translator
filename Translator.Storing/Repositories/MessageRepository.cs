@@ -17,6 +17,12 @@ namespace Translator.Storing.Repositories
     {
       return _db.Message.Where(m => m.MessageId == id).Include(u => u.User).FirstOrDefault();
     }
+    public void Create(Message m)
+    {
+      _db.Message.Add(m);
+      _db.SaveChanges();
+    }
+
     // deprecated
     public List<M> Read()
     {
