@@ -39,12 +39,10 @@ stages:
               /k:ccc-translator \
               /d:sonar.login=$SONAR_TOKEN \
               /d:sonar.host.url=https://sonarcloud.io/ \
-              /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml \
-              /d:sonar.cs.vstest.reportsPaths=**/*.trx \
+              /d:sonar.cs.opencover.reportsPaths=**/Translator.Testing/coverage.opencover.xml \
               /o:ccc-p2
               dotnet build ./Translator.sln
-              dotnet test ./Translator.sln --logger trx 
-              dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura%2copencover
+              dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
             env:
               SONAR_TOKEN: $(SONAR_LOGIN)
