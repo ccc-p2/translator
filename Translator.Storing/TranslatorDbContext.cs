@@ -37,7 +37,6 @@ namespace Translator.Storing
         new Message(){ MessageId = 3, UserId = 3, Content = "third message", MessageDateTime = DateTime.Now}
       });
 
-
     }
   }
 }

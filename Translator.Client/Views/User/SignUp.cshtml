@@ -38,7 +38,20 @@
             @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
         </div>
-    </div>    
+    </div> 
+
+    <fieldset>
+      <legend>Preferred Language</legend>
+      <p>
+        <select id = "Language" name="Language">
+          <option value = "english">English</option>
+          <option value = "spanish">Spanish</option>
+          <option value = "german">German</option>
+          <option value = "french">French</option>
+        </select>
+      </p>
+    </fieldset>
+      
     <br />  
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

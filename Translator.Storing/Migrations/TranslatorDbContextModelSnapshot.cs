@@ -46,21 +46,21 @@ namespace Translator.Storing.Migrations
                         {
                             MessageId = 1,
                             Content = "first message",
-                            MessageDateTime = new DateTime(2019, 12, 15, 14, 23, 20, 761, DateTimeKind.Local).AddTicks(597),
+                            MessageDateTime = new DateTime(2019, 12, 15, 17, 32, 40, 13, DateTimeKind.Local).AddTicks(7666),
                             UserId = 2
                         },
                         new
                         {
                             MessageId = 2,
                             Content = "second message",
-                            MessageDateTime = new DateTime(2019, 12, 15, 14, 23, 20, 765, DateTimeKind.Local).AddTicks(7987),
+                            MessageDateTime = new DateTime(2019, 12, 15, 17, 32, 40, 18, DateTimeKind.Local).AddTicks(3322),
                             UserId = 2
                         },
                         new
                         {
                             MessageId = 3,
                             Content = "third message",
-                            MessageDateTime = new DateTime(2019, 12, 15, 14, 23, 20, 765, DateTimeKind.Local).AddTicks(8112),
+                            MessageDateTime = new DateTime(2019, 12, 15, 17, 32, 40, 18, DateTimeKind.Local).AddTicks(3400),
                             UserId = 3
                         });
                 });
