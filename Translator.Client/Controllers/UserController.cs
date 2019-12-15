@@ -1,15 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Translator.Client.Models;
-using Translator.Domain.Models;
-/* using Translator.Storing.Adapters;
-using Translator.Storing.PizzaBoxDb;  */
+using Translator.Storing.Models;
 using Translator.Storing.Repositories;
 
 namespace Translator.Client.Controllers
@@ -65,7 +60,7 @@ namespace Translator.Client.Controllers
             tempUser.Username = model.Username;
             tempUser.Password = model.Password;
             tempUser.Language = model.Language;
-            // _user.Add(tempUser);
+            _user.AddNewUser(tempUser);
             return RedirectToAction("Home", "Users");
           }
           return View();
@@ -85,8 +80,7 @@ namespace Translator.Client.Controllers
         public IActionResult Login(UserViewModel user)
         {
           User isUserValid = new User();
-          // isUserValid = _user.CheckForUser(user.Username, user.Password);
-          // isUserValid = _db.User.Single(u => u.Username == user.Username && u.Password == user.Password);          
+          isUserValid = _user.CheckForUser(user.Username, user.Password);         
           
           if(isUserValid != null)
           {

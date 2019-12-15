@@ -16,6 +16,16 @@ namespace Translator.Storing.Repositories
     public List<User> GetAllUsers()
     {
       return _db.User.Include(m => m.Messages).ToList();
+    }
+    public bool AddNewUser(User newUser)
+    {
+      _db.User.Add(newUser);
+      return _db.SaveChanges() == 1;      
     } 
+
+    public User CheckForUser(string username, string password)
+    {
+      return _db.User.FirstOrDefault(u => u.Username == username && u.Password == password);
+    }
   }
 }
