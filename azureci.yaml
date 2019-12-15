@@ -44,8 +44,7 @@ stages:
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
               /o:ccc-p2
               dotnet build ./Translator.sln
-              dotnet test ./Translator.sln --logger trx
-              dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+              dotnet test ./Translator.sln --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
             env:
               SONAR_TOKEN: $(SONAR_LOGIN)
