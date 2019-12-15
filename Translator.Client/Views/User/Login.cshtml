@@ -3,10 +3,12 @@
 
 @{
     ViewData["Title"] = "Login";
+    ViewData["Prompt"] = ViewBag.Prompt;
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>Please Login</p>
+<h4>@ViewData["Prompt"]</h4>
 
 @using (Html.BeginForm("Login", "User"))
 {
