@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Translator.Storing.Models;
 
 namespace Translator.Storing.Repositories
@@ -10,11 +11,11 @@ namespace Translator.Storing.Repositories
 
     public User GetUser(int userId)
     {
-      return _db.User.FirstOrDefault(u => u.UserId == userId);
+      return _db.User.Include(m => m.Messages).FirstOrDefault(u => u.UserId == userId);
     }
     public List<User> GetAllUsers()
     {
-      return _db.User.ToList();
+      return _db.User.Include(m => m.Messages).ToList();
     } 
   }
 }

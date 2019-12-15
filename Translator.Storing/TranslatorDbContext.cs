@@ -21,7 +21,6 @@ namespace Translator.Storing
 
       builder.Entity<Message>(o => o.HasKey(k => k.MessageId));
       builder.Entity<Message>().Property(p => p.MessageId).UseSerialColumn().ValueGeneratedOnAdd();
-
       builder.Entity<Message>().HasOne(u => u.User).WithMany(m => m.Messages).HasForeignKey(m => m.UserId);
 
       builder.Entity<User>().HasData(new List<User>()
