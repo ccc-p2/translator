@@ -1,34 +1,33 @@
 using System.Collections.Generic;
-using Translator.Domain.Models;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Translator.Storing.Models;
+using M=Translator.Domain.Models.Message;
 
 namespace Translator.Storing.Repositories
 {
   public class MessageRepository
   {
-    public MessageRepository() {}
-
-    public void Create()
+    private static readonly TranslatorDbContext _db = new TranslatorDbContext();
+    public List<Message> GetAllMessages()
     {
-
+      return _db.Message.Include(u => u.User).ToList();
     }
-    public List<Message> Read()
+    public Message GetMessage(int id)
     {
-      Message newMessage = new Message("First Message");
+      return _db.Message.Where(m => m.MessageId == id).Include(u => u.User).FirstOrDefault();
+    }
+    // deprecated
+    public List<M> Read()
+    {
+      M newMessage = new M("First Message");
       newMessage.Id = 1;
-      List<Message> MessageList = new List<Message>();
+      List<M> MessageList = new List<M>();
       MessageList.Add(newMessage);
-      newMessage = new Message("Seccond Message");
+      newMessage = new M("Seccond Message");
       MessageList.Add(newMessage);
       return MessageList;
     }
-    public void Update()
-    {
 
-    }
-    public void Delete()
-    {
-
-    }
-      
   }
 }
