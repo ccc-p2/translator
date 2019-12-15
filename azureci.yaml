@@ -29,7 +29,7 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: dotnet tool install --global dotnet-sonarscanner --version 4.7.1
+          - script: dotnet tool install --global dotnet-sonarscanner
           - script: |
               dotnet sonarscanner begin \
               /k:ccc-translator \
