@@ -8,7 +8,6 @@ namespace Translator.Client.Models
 {
   public class UserViewModel
   {
-
     public int UserId{get; set;}
     [Required(ErrorMessage = "Please enter a Username.")] 
     public string Username { get; set; }

@@ -21,7 +21,7 @@ namespace Translator.Storing.Migrations
 
             modelBuilder.Entity("Translator.Storing.Models.Message", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MessageId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
@@ -35,7 +35,7 @@ namespace Translator.Storing.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
+                    b.HasKey("MessageId");
 
                     b.HasIndex("UserId");
 
@@ -44,69 +44,66 @@ namespace Translator.Storing.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Content = "First Message",
-                            MessageDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MessageId = 1,
+                            Content = "first message",
+                            MessageDateTime = new DateTime(2019, 12, 15, 14, 23, 20, 761, DateTimeKind.Local).AddTicks(597),
                             UserId = 2
                         },
                         new
                         {
-                            Id = 2,
-                            Content = "Second Message",
-                            MessageDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MessageId = 2,
+                            Content = "second message",
+                            MessageDateTime = new DateTime(2019, 12, 15, 14, 23, 20, 765, DateTimeKind.Local).AddTicks(7987),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            MessageId = 3,
+                            Content = "third message",
+                            MessageDateTime = new DateTime(2019, 12, 15, 14, 23, 20, 765, DateTimeKind.Local).AddTicks(8112),
                             UserId = 3
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Content = "Third Message",
-                            MessageDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 2
                         });
                 });
 
             modelBuilder.Entity("Translator.Storing.Models.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
 
                     b.Property<string>("Language")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("User");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Language = "Spanish",
+                            UserId = 1,
+                            Language = "spanish",
                             Password = "12345678",
                             Username = "sergio"
                         },
                         new
                         {
-                            Id = 2,
-                            Language = "English",
+                            UserId = 2,
+                            Language = "english",
                             Password = "12345678",
                             Username = "john"
                         },
                         new
                         {
-                            Id = 3,
-                            Language = "French",
+                            UserId = 3,
+                            Language = "french",
                             Password = "12345678",
                             Username = "herman"
                         });
@@ -114,7 +111,7 @@ namespace Translator.Storing.Migrations
 
             modelBuilder.Entity("Translator.Storing.Models.Message", b =>
                 {
-                    b.HasOne("Translator.Storing.Models.User", null)
+                    b.HasOne("Translator.Storing.Models.User", "User")
                         .WithMany("Messages")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
