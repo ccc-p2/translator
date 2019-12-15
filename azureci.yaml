@@ -18,11 +18,11 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: dotnet test ./Translator.sln --logger trx --collect:"Code Coverage"
+          - script: dotnet test ./Translator.sln --logger trx --collect:"XPlat Code Coverage"
           - task: PublishCodeCoverageResults@1
             inputs:
-              codeCoverageTool: coverage
-              summaryFileLocation: '**/.coveragexml'
+              codeCoverageTool: cobertura
+              summaryFileLocation: '**/coverage.cobertura.xml'
   - stage: analyze
     jobs:
       - job:
@@ -39,8 +39,7 @@ stages:
               /k:ccc-translator \
               /d:sonar.login=$SONAR_TOKEN \
               /d:sonar.host.url=https://sonarcloud.io/ \
-              /d:sonar.cs.opencover.reportsPaths=**/TestResults/*/coverage.opencover.xml \
-              /d:sonar.cs.vscoveragexml.reportsPaths=**/*.coveragexml
+              /d:sonar.flex.cobertura.reportsPaths=**/TestResults/*/coverage.cobertura.xml \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
               /o:ccc-p2
               dotnet build ./Translator.sln
