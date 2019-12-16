@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +14,9 @@ namespace Translator.Client.Controllers
     public class UserController : Controller
     {
         private UserRepository _user = new UserRepository();
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(ILogger<HomeController> logger)
+        public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
         }
@@ -52,7 +53,7 @@ namespace Translator.Client.Controllers
           if(HttpContext.Session.GetInt32("SessionKeyUserId") != null)
           {
             HttpContext.Session.Remove("SessionKeyUserId");
-          }        
+          }       
 
           if(ModelState.IsValid)
           {    
@@ -91,7 +92,7 @@ namespace Translator.Client.Controllers
           }
           ViewBag.Prompt = "Invalid Username or Password";
             return View(new UserViewModel());
-        }       
+        }   
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

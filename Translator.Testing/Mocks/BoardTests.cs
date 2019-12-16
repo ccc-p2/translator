@@ -19,7 +19,7 @@ namespace Translator.Testing.Mocks
 
           //Assert
           string translatedMessage = input.TranslatedContent;
-          Assert.StrictEqual(spanishMessage, translatedMessage);
+          Assert.Equal(spanishMessage, translatedMessage);
 
         }
         [Fact]
@@ -35,7 +35,7 @@ namespace Translator.Testing.Mocks
 
           //Assert
           string translatedMessage = input.TranslatedContent;
-          Assert.StrictEqual(spanishMessage, translatedMessage);
+          Assert.Equal(spanishMessage, translatedMessage);
 
         }
     }
