@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Translator.Client.Models;
-using Translator.Domain.Models;
+using Translator.Storing.Models;
 using Translator.Storing.Repositories;
 
 namespace Translator.Client.Controllers
@@ -36,7 +36,7 @@ namespace Translator.Client.Controllers
 
         public IActionResult MessageBoard()
         {
-            List<Message> allMessages = _mr.Read();
+            List<Message> allMessages = _mr.GetAllMessages();
             ViewBag.Messages = allMessages;
             return View();
         }
@@ -45,6 +45,11 @@ namespace Translator.Client.Controllers
         {
           if(ModelState.IsValid)
           {
+            Message newMessage = new Message();
+            newMessage.UserId = 1;
+            newMessage.Content = message.Content;
+            newMessage.MessageDateTime = DateTime.Now;
+            _mr.Create(newMessage);
             return RedirectToAction("MessageBoard","Home");
           }
           return RedirectToAction("MessageBoard", "Home");

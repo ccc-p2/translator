@@ -17,14 +17,16 @@ namespace Translator.Storing.Migrations
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63)
+                .HasAnnotation("Relational:Sequence:.MessageId", "'MessageId', '', '100', '2', '', '', 'Int32', 'False'")
+                .HasAnnotation("Relational:Sequence:.UserId", "'UserId', '', '10', '1', '', '', 'Int32', 'False'");
 
             modelBuilder.Entity("Translator.Storing.Models.Message", b =>
                 {
                     b.Property<int>("MessageId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+                        .HasDefaultValueSql("nextval('\"MessageId\"')");
 
                     b.Property<string>("Content")
                         .HasColumnType("text");
@@ -46,21 +48,21 @@ namespace Translator.Storing.Migrations
                         {
                             MessageId = 1,
                             Content = "first message",
-                            MessageDateTime = new DateTime(2019, 12, 15, 17, 56, 57, 220, DateTimeKind.Local).AddTicks(5593),
+                            MessageDateTime = new DateTime(2019, 12, 15, 20, 30, 15, 178, DateTimeKind.Local).AddTicks(5140),
                             UserId = 2
                         },
                         new
                         {
                             MessageId = 2,
                             Content = "second message",
-                            MessageDateTime = new DateTime(2019, 12, 15, 17, 56, 57, 223, DateTimeKind.Local).AddTicks(1538),
+                            MessageDateTime = new DateTime(2019, 12, 15, 20, 30, 15, 203, DateTimeKind.Local).AddTicks(1630),
                             UserId = 2
                         },
                         new
                         {
                             MessageId = 3,
                             Content = "third message",
-                            MessageDateTime = new DateTime(2019, 12, 15, 17, 56, 57, 223, DateTimeKind.Local).AddTicks(1582),
+                            MessageDateTime = new DateTime(2019, 12, 15, 20, 30, 15, 203, DateTimeKind.Local).AddTicks(1680),
                             UserId = 3
                         });
                 });
@@ -70,7 +72,7 @@ namespace Translator.Storing.Migrations
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+                        .HasDefaultValueSql("nextval('\"UserId\"')");
 
                     b.Property<string>("Language")
                         .HasColumnType("text");
