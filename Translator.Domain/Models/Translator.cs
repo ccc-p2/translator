@@ -95,10 +95,18 @@ namespace Translator.Domain.Models
           foreach (TranslationResult o in deserializedOutput)
           {
               // Iterate over the results and print each translation.
-              foreach (Translation t in o.Translations)
+              if(o.Translations.Length <= 0)
               {
-                  return t.Text;
+                return o.Translations[0].Text;
               }
+              else
+              {
+                foreach (Translation t in o.Translations)
+                {
+                    return t.Text;
+                }
+              }
+              
           }
       }
       return null;
