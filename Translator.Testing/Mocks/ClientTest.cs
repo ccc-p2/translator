@@ -56,6 +56,7 @@ namespace Translator.Testing
           var home = new HomeController(logger);
           MessageViewModel message = new MessageViewModel()
           {
+            MessageId = 2000,
             Content = "Hello"
           };
 
