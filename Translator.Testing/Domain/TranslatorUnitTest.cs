@@ -17,7 +17,7 @@ namespace Translator.Testing.Domain
       TR actualResponse = new TR();
       
       // Assert
-      Assert.True(actualResponse.Translate(messageRequest, "SPANish").Result.Equals(messageResponse));
+      Assert.True(actualResponse.Translate(messageRequest, "spanish").Result.Equals(messageResponse));
     }
 
     [Fact]
@@ -65,7 +65,7 @@ namespace Translator.Testing.Domain
     public void Test_DummyMessage()
     {
       // Arrange
-      string messageRequest = "ABCDEFG";
+      string messageRequest = "aBcDeFg";
 
       // Act out
       TR actualResponse = new TR();
@@ -73,6 +73,5 @@ namespace Translator.Testing.Domain
       // Assert
       Assert.True(string.IsNullOrEmpty(actualResponse.Translate(messageRequest, "Spanish").Result));
     }
-      
   }
 }
