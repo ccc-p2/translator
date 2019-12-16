@@ -4,34 +4,58 @@
     ViewData["Title"] = "Home Page";
 }
 
-<form action="/home/messageboard" method="post">
-    <h1 class="display-4">Message Board</h1>
-    <fieldset> 
-      <legend>Preferred Language</legend>
-      <p> 
-        <select id = "Language" name="Language">
-          <option value = "english">English</option>
-          <option value = "spanish">Spanish</option>
-          <option value = "german">German</option>
-          <option value = "french">French</option>
-        </select>
-      </p> 
-    </fieldset> 
-    <button type="submit" class="btn btn-primary" >
-          Submit Order
-    </button>
-</form>
-<div class="text-left">
-        @foreach(var m in ViewBag.Messages)
-        {
-         <div class="card">
-            <div class="card-body">
-              <h5>Message: @m.Content </h5>
-              <p>Date: @m.MessageDateTime </p>
-            </div>
-          </div>
-        }
+<br/>
+<div class=row>
+  <div class="col-sm-12">
+    <div class="card border-primary text-primary mb-3">
+      <div class="card-body text-primary">
+        <h5 class="card-title">
+          <h1 class="display-4 text-center">Hello | Hola | Hallo | Bonjour</h1>
+        </h5>
+    </div>
+  </div>
 </div>
+  <div class="col-sm-12">
+    <form action="/home/messageboard" method="post">
+      <div class="card border-primary mb-3">
+        <h5 class="card-header">Language Selector</h5>
+        <div class="form-row align-items-center">
+          <div class="col-9 my-6">
+            <label class="mr-sm-1 sr-only" for="inlineFormCustomSelect">Preference</label>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Language">
+              <option selected>Select language...</option>
+              <option value = "english">English</option>
+              <option value = "spanish">Spanish</option>
+              <option value = "german">German</option>
+              <option value = "french">French</option>
+            </select>
+          </div>
+          <div class="col-3 my-3">
+            <button type="submit" class="btn btn-primary">Change Language</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+    @foreach(var m in ViewBag.Messages)
+    {
+      <div class="col-sm-3">
+      <div class="card border-primary mb-3">
+      <div class="card-header bg-transparent border-primary text-success">Message @m.MessageId</div>
+        <div class="card-body">
+          <h5 class="card-title">
+            @m.Content
+          </h5>
+      </div>
+      <div class="card-footer bg-transparent border-primary text-danger">@m.MessageDateTime</div>
+      </div>
+      </div>
+    }
+
+</div>
+
+
 
 <div class="text-left">
     <form action="/Home/CreateMessage" method="post">

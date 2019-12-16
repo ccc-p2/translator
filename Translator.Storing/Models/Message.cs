@@ -11,10 +11,10 @@ namespace Translator.Storing.Models
     public DateTime MessageDateTime { get; set; }
     // public int UserId { get; set; }
     // public User User { get; set; }
-    public async Task<string> TranslateTo(string ToLanguage)
-    {
-      TR tr = new TR();
-      return await tr.Translate(Content, ToLanguage);
-    }
+    // public async Task<string> TranslateTo(string ToLanguage)
+    // {
+    //   TR tr = new TR();
+    //   return await tr.Translate(Content, ToLanguage);
+    // }
   }
 }

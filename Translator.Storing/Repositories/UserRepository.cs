@@ -28,10 +28,10 @@ namespace Translator.Storing.Repositories
     {
       return _db.User.FirstOrDefault(u => u.UserId == userId);
     }
-    public List<User> GetAllUsers()
-    {
-      return _db.User.Include(m => m.Messages).ToList();
-    }
+    // public List<User> GetAllUsers()
+    // {
+    //   return _db.User.Include(m => m.Messages).ToList();
+    // }
     public bool AddNewUser(User newUser)
     {
       _db.User.Add(newUser);

@@ -35,13 +35,8 @@ namespace Translator.Client.Controllers
         [HttpGet]
         public IActionResult MessageBoard()
         {
-            // var userId = (int)HttpContext.Session.GetInt32("SessionKeyUserId");
-            // User currentUser = _user.GetUser(userId);
-            // List<Message> allMessages = _user.GetAllMessagesTranslated(userId).Result;
             List<Message> allMessages = _mr.GetAllMessages();
-            // List<Message> translatedMessages = _mr.GetAllMessages("english").Result;
             ViewBag.Messages = allMessages;
-            // ViewBag.TranslatedMessages = allMessages;
             ViewBag.UserLanguage = "English";
             return View();
         }
@@ -50,15 +45,7 @@ namespace Translator.Client.Controllers
         {
           if(ModelState.IsValid)
           {
-            // var userId = (int)HttpContext.Session.GetInt32("SessionKeyUserId");
-            // User currentUser = _user.GetUser(userId);
-            // List<Message> allMessages = _user.GetAllMessagesTranslated(userId).Result;
-            // List<Message> allMessages = _mr.GetAllMessages();
-            // List<Message> translatedMessages = _mr.GetAllMessages("english").Result;
-            // ViewBag.Messages = allMessages;
             ViewBag.Messages = _mr.GetAllMessages(board.Language).Result;
-
-            // ViewBag.UserLanguage = board.Language;
             return View();
           }
           
@@ -70,8 +57,6 @@ namespace Translator.Client.Controllers
           if(ModelState.IsValid)
           {
             Message newMessage = new Message();
-            // newMessage.UserId = (int)HttpContext.Session.GetInt32("SessionKeyUserId");
-            // newMessage.UserId = 1;
             newMessage.Content = message.Content;
             newMessage.MessageDateTime = DateTime.Now;
             _mr.Create(newMessage);
@@ -79,8 +64,7 @@ namespace Translator.Client.Controllers
           }
           return RedirectToAction("MessageBoard", "Home");
         }
-
-
+        
         [HttpGet("{id}")]
         public IActionResult Message(int id)
         {

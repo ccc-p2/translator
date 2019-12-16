@@ -26,7 +26,6 @@ namespace Translator.Storing.Repositories
         translatedMessage.Content = await tr.Translate(m.Content, language);
         translatedMessage.MessageDateTime = m.MessageDateTime;
         translatedMessageList.Add(translatedMessage);
-        // m.Content = await tr.Translate(m.Content, language);
       }
       return translatedMessageList;
     }
