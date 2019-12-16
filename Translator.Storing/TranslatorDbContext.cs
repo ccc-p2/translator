@@ -16,11 +16,13 @@ namespace Translator.Storing
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+      builder.HasSequence<int>("UserId").StartsAt(10).IncrementsBy(1);
       builder.Entity<User>(o => o.HasKey(k => k.UserId));
-      builder.Entity<User>().Property(p => p.UserId).UseSerialColumn().ValueGeneratedOnAdd();
+      builder.Entity<User>().Property(p => p.UserId).HasDefaultValueSql("nextval('\"UserId\"')");
 
+      builder.HasSequence<int>("MessageId").StartsAt(100).IncrementsBy(2);
       builder.Entity<Message>(o => o.HasKey(k => k.MessageId));
-      builder.Entity<Message>().Property(p => p.MessageId).UseSerialColumn().ValueGeneratedOnAdd();
+      builder.Entity<Message>().Property(p => p.MessageId).HasDefaultValueSql("nextval('\"MessageId\")");
       builder.Entity<Message>().HasOne(u => u.User).WithMany(m => m.Messages).HasForeignKey(m => m.UserId);
 
       builder.Entity<User>().HasData(new List<User>()
