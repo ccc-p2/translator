@@ -51,16 +51,23 @@ namespace Translator.Testing
           Assert.NotNull(messageGrabbed);
         }
         [Fact]
-        public void Test_UserViewModelExistance()
+        public void Test_UserViewModelPropagation()
         {
           //Arrange
           var user = new UserViewModel();
 
           //Act Out
           user.Username = "test";
+          user.Password = "testing123";
+          user.ConfirmPassword = "testing123";
+          user.Language = "german";
+          
 
           //Assert
-          Assert.NotEmpty(user.Username);
+          Assert.Matches("test", user.Username);
+          Assert.Matches("testing123", user.Password);
+          Assert.Matches("testing123", user.ConfirmPassword);
+          Assert.Matches("german", user.Language);
         }
     }
 }
