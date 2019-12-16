@@ -79,6 +79,7 @@ namespace Translator.Client.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(UserViewModel user)
         {
+
           User isUserValid = new User();
           isUserValid = _user.CheckForUser(user.Username, user.Password);         
           

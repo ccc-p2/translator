@@ -9,5 +9,6 @@ namespace Translator.Storing.Models
     public DateTime MessageDateTime { get; set; }
     public int UserId { get; set; }
     public User User { get; set; }
+    
   }
 }

@@ -15,6 +15,7 @@ namespace Translator.Client.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly MessageRepository _mr = new MessageRepository();
+        private readonly UserRepository _user = new UserRepository();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -34,7 +35,9 @@ namespace Translator.Client.Controllers
 
         public IActionResult MessageBoard()
         {
-            List<Message> allMessages = _mr.GetAllMessages();
+            //List<Message> allMessages = _mr.GetAllMessages();
+            var userId = (int)HttpContext.Session.GetInt32("SessionKeyUserId");
+            List<Message> allMessages = _user.GetAllMessagesTranslated(userId).Result;
             ViewBag.Messages = allMessages;
             return View();
         }

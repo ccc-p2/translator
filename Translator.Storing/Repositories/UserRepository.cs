@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Translator.Storing.Models;
+using TR = Translator.Domain.Models.Translator;
 
 namespace Translator.Storing.Repositories
 {
@@ -9,9 +11,22 @@ namespace Translator.Storing.Repositories
   {
     private static readonly TranslatorDbContext _db = new TranslatorDbContext();
 
+    public async Task<List<Message>> GetAllMessagesTranslated(int userId)
+    {
+      List<Message> allMessages = _db.Message.Include(u => u.User).ToList();
+      var user = GetUser(userId);
+      TR miniTranslator = new TR();
+      foreach(Message m in allMessages)
+      {
+        await miniTranslator.Translate(m.Content, user.Language);
+      }
+      return await Task.FromResult(allMessages);
+    }
+    
+
     public User GetUser(int userId)
     {
-      return _db.User.Include(m => m.Messages).FirstOrDefault(u => u.UserId == userId);
+      return _db.User.FirstOrDefault(u => u.UserId == userId);
     }
     public List<User> GetAllUsers()
     {
