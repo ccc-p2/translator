@@ -22,7 +22,7 @@ namespace Translator.Storing
 
       builder.HasSequence<int>("MessageId").StartsAt(100).IncrementsBy(2);
       builder.Entity<Message>(o => o.HasKey(k => k.MessageId));
-      builder.Entity<Message>().Property(p => p.MessageId).HasDefaultValueSql("nextval('\"MessageId\")");
+      builder.Entity<Message>().Property(p => p.MessageId).HasDefaultValueSql("nextval('\"MessageId\"')");
       builder.Entity<Message>().HasOne(u => u.User).WithMany(m => m.Messages).HasForeignKey(m => m.UserId);
 
       builder.Entity<User>().HasData(new List<User>()
