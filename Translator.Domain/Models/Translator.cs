@@ -105,8 +105,6 @@ namespace Translator.Domain.Models
                   return t.Text;
               }
           } */
-              
-          }
       }
       return null;
     }
