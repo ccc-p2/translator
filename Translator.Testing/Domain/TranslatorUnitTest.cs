@@ -61,17 +61,17 @@ namespace Translator.Testing.Domain
       Assert.True(string.IsNullOrEmpty(actualResponse.Translate(messageRequest, emptyLanguage).Result));
     }
 
-    [Fact]
-    public void Test_DummyMessage()
-    {
-      // Arrange
-      string messageRequest = "aBcDeFg";
+    // [Fact]
+    // public void Test_DummyMessage()
+    // {
+    //   // Arrange
+    //   string messageRequest = "aBcDeFg";
 
-      // Act out
-      TR actualResponse = new TR();
+    //   // Act out
+    //   TR actualResponse = new TR();
 
-      // Assert
-      Assert.True(string.IsNullOrEmpty(actualResponse.Translate(messageRequest, "Spanish").Result));
-    }
+    //   // Assert
+    //   Assert.True(string.IsNullOrEmpty(actualResponse.Translate(messageRequest, "Spanish").Result));
+    // }
   }
 }

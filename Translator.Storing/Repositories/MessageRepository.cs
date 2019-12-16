@@ -13,21 +13,26 @@ namespace Translator.Storing.Repositories
     private static readonly TranslatorDbContext _db = new TranslatorDbContext();
     public List<Message> GetAllMessages()
     {
-      return _db.Message.Include(u => u.User).ToList();
+      return _db.Message.ToList();
     }
     public async Task<List<Message>> GetAllMessages(string language)
     {
-      List<Message> messages = _db.Message.Include(u => u.User).ToList();
+      List<Message> messages = _db.Message.ToList();
+      List<Message> translatedMessageList = new List<Message>();
       TR tr = new TR();
       foreach(Message m in messages)
       {
-        m.Content = await tr.Translate(m.Content, language);
+        Message translatedMessage = new Message();
+        translatedMessage.Content = await tr.Translate(m.Content, language);
+        translatedMessage.MessageDateTime = m.MessageDateTime;
+        translatedMessageList.Add(translatedMessage);
+        // m.Content = await tr.Translate(m.Content, language);
       }
-      return messages;
+      return translatedMessageList;
     }
     public Message GetMessage(int id)
     {
-      return _db.Message.Where(m => m.MessageId == id).Include(u => u.User).FirstOrDefault();
+      return _db.Message.Where(m => m.MessageId == id).FirstOrDefault();
     }
     public void Create(Message m)
     {

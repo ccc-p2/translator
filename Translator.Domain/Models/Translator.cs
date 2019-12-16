@@ -92,8 +92,8 @@ namespace Translator.Domain.Models
         return null;
       string route = "/translate?api-version=3.0&to="+langCode;
       string translatedText = await Task.FromResult(TranslateTextRequest(subscriptionKey, endpoint, route, message.ToLower()).Result);
-      if(translatedText.Contains(message.ToLower()))
-        return null;
+      // if(translatedText.Contains(message.ToLower()))
+      //   return null;
       return translatedText;
     }
   }

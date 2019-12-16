@@ -42,7 +42,7 @@ namespace Translator.Client.Controllers
             // List<Message> translatedMessages = _mr.GetAllMessages("english").Result;
             ViewBag.Messages = allMessages;
             // ViewBag.TranslatedMessages = allMessages;
-            ViewBag.UserLanguage = "german";
+            ViewBag.UserLanguage = "English";
             return View();
         }
         [HttpPost]
@@ -53,11 +53,12 @@ namespace Translator.Client.Controllers
             // var userId = (int)HttpContext.Session.GetInt32("SessionKeyUserId");
             // User currentUser = _user.GetUser(userId);
             // List<Message> allMessages = _user.GetAllMessagesTranslated(userId).Result;
-            List<Message> allMessages = _mr.GetAllMessages();
+            // List<Message> allMessages = _mr.GetAllMessages();
             // List<Message> translatedMessages = _mr.GetAllMessages("english").Result;
-            ViewBag.Messages = allMessages;
-            // ViewBag.TranslatedMessages = allMessages;
-            ViewBag.UserLanguage = board.Language;
+            // ViewBag.Messages = allMessages;
+            ViewBag.Messages = _mr.GetAllMessages(board.Language).Result;
+
+            // ViewBag.UserLanguage = board.Language;
             return View();
           }
           
@@ -70,7 +71,7 @@ namespace Translator.Client.Controllers
           {
             Message newMessage = new Message();
             // newMessage.UserId = (int)HttpContext.Session.GetInt32("SessionKeyUserId");
-            newMessage.UserId = 1;
+            // newMessage.UserId = 1;
             newMessage.Content = message.Content;
             newMessage.MessageDateTime = DateTime.Now;
             _mr.Create(newMessage);

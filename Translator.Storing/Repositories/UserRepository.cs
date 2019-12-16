@@ -13,7 +13,7 @@ namespace Translator.Storing.Repositories
 
     public async Task<List<Message>> GetAllMessagesTranslated(int userId)
     {
-      List<Message> allMessages = _db.Message.Include(u => u.User).ToList();
+      List<Message> allMessages = _db.Message.ToList();
       var user = GetUser(userId);
       TR miniTranslator = new TR();
       foreach(Message m in allMessages)

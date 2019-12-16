@@ -9,8 +9,8 @@ namespace Translator.Storing.Models
     public int MessageId { get; set; }
     public string Content { get; set; }
     public DateTime MessageDateTime { get; set; }
-    public int UserId { get; set; }
-    public User User { get; set; }
+    // public int UserId { get; set; }
+    // public User User { get; set; }
     public async Task<string> TranslateTo(string ToLanguage)
     {
       TR tr = new TR();
