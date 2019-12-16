@@ -36,37 +36,7 @@ namespace Translator.Testing
           Assert.NotNull(index);
 
         }
-        [Fact]
-        public void Test_BoardPage()
-        {
-          //Arrange
-          var home = new HomeController(logger);
-
-          //Act Out
-          var board = home.MessageBoard();
-
-          //Assert
-          Assert.NotNull(board);
-
-        }
-        [Fact]
-        public void Test_MessageCreation()
-        {
-          //Arrange
-          var home = new HomeController(logger);
-          MessageViewModel message = new MessageViewModel()
-          {
-            MessageId = 2000,
-            Content = "Hello"
-          };
-
-          //Act Out
-          var createM = home.CreateMessage(message);
-
-          //Assert
-          Assert.NotNull(createM);
-
-        }
+        
         [Fact]
         public void Test_GrabMessageById()
         {
