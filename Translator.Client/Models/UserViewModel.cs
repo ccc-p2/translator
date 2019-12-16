@@ -1,13 +1,12 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-//using Translator.Client.Validations;
-//using Translator.Storing.Adapters;
-//using Translator.Storing.PizzaBoxDb;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Translator.Client.Models
 {
   public class UserViewModel
   {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
     public int UserId{get; set;}
     [Required(ErrorMessage = "Please enter a Username.")] 
     public string Username { get; set; }
@@ -23,7 +22,7 @@ namespace Translator.Client.Models
     public DateTime CreatedAt { get; set; }
     public UserViewModel()
     {
-      
+
     }
   }
 }

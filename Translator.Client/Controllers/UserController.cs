@@ -61,7 +61,7 @@ namespace Translator.Client.Controllers
             tempUser.Password = model.Password;
             tempUser.Language = model.Language;
             _user.AddNewUser(tempUser);
-            return RedirectToAction("Home", "Users");
+            return RedirectToAction("Home", "User");
           }
           return View();
         }
@@ -70,8 +70,9 @@ namespace Translator.Client.Controllers
         {
           if(HttpContext.Session.GetInt32("SessionKeyUserId") !=null)
           {
-            return RedirectToAction("Home", "Users", new { userID = HttpContext.Session.GetInt32("SessionKeyUserId")  });
+            return RedirectToAction("Home", "User", new { userID = HttpContext.Session.GetInt32("SessionKeyUserId")  });
           }
+          
           return View();
         }
 
@@ -88,6 +89,7 @@ namespace Translator.Client.Controllers
 
             return RedirectToAction("home", "User", new { userId = isUserValid.UserId});
           }
+          ViewBag.Prompt = "Invalid Username or Password";
             return View(new UserViewModel());
         }       
 
