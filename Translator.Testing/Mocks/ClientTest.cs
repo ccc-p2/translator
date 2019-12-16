@@ -50,5 +50,17 @@ namespace Translator.Testing
           //Assert
           Assert.NotNull(messageGrabbed);
         }
+        [Fact]
+        public void Test_UserViewModelExistance()
+        {
+          //Arrange
+          var user = new UserViewModel();
+
+          //Act Out
+          user.Username = "test";
+
+          //Assert
+          Assert.NotEmpty(user.Username);
+        }
     }
 }
