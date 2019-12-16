@@ -18,7 +18,7 @@ namespace Translator.Storing.Repositories
       TR miniTranslator = new TR();
       foreach(Message m in allMessages)
       {
-        await miniTranslator.Translate(m.Content, user.Language);
+        m.Content = await miniTranslator.Translate(m.Content, user.Language);
       }
       return await Task.FromResult(allMessages);
     }

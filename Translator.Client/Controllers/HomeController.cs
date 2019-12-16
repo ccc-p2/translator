@@ -32,14 +32,36 @@ namespace Translator.Client.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public IActionResult MessageBoard()
         {
-            //List<Message> allMessages = _mr.GetAllMessages();
-            var userId = (int)HttpContext.Session.GetInt32("SessionKeyUserId");
-            List<Message> allMessages = _user.GetAllMessagesTranslated(userId).Result;
+            // var userId = (int)HttpContext.Session.GetInt32("SessionKeyUserId");
+            // User currentUser = _user.GetUser(userId);
+            // List<Message> allMessages = _user.GetAllMessagesTranslated(userId).Result;
+            List<Message> allMessages = _mr.GetAllMessages();
+            // List<Message> translatedMessages = _mr.GetAllMessages("english").Result;
             ViewBag.Messages = allMessages;
+            // ViewBag.TranslatedMessages = allMessages;
+            ViewBag.UserLanguage = "german";
             return View();
+        }
+        [HttpPost]
+        public IActionResult MessageBoard(MessageBoardViewModel board)
+        {
+          if(ModelState.IsValid)
+          {
+            // var userId = (int)HttpContext.Session.GetInt32("SessionKeyUserId");
+            // User currentUser = _user.GetUser(userId);
+            // List<Message> allMessages = _user.GetAllMessagesTranslated(userId).Result;
+            List<Message> allMessages = _mr.GetAllMessages();
+            // List<Message> translatedMessages = _mr.GetAllMessages("english").Result;
+            ViewBag.Messages = allMessages;
+            // ViewBag.TranslatedMessages = allMessages;
+            ViewBag.UserLanguage = board.Language;
+            return View();
+          }
+          
+          return Redirect("MessageBoard");
         }
         [HttpPost]
         public IActionResult CreateMessage(MessageViewModel message)
@@ -47,6 +69,7 @@ namespace Translator.Client.Controllers
           if(ModelState.IsValid)
           {
             Message newMessage = new Message();
+            // newMessage.UserId = (int)HttpContext.Session.GetInt32("SessionKeyUserId");
             newMessage.UserId = 1;
             newMessage.Content = message.Content;
             newMessage.MessageDateTime = DateTime.Now;
