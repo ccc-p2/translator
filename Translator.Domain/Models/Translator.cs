@@ -92,20 +92,19 @@ namespace Translator.Domain.Models
           string result = await response.Content.ReadAsStringAsync();
           TranslationResult[] deserializedOutput = JsonConvert.DeserializeObject<TranslationResult[]>(result);
           // Iterate over the deserialized results.
-          foreach (TranslationResult o in deserializedOutput)
+          if(deserializedOutput != null)
+          {
+            return deserializedOutput[0].Translations[0].Text;
+          }
+          
+          /* foreach (TranslationResult o in deserializedOutput)
           {
               // Iterate over the results and print each translation.
-              if(o.Translations.Length <= 0)
+              foreach (Translation t in o.Translations)
               {
-                return o.Translations[0].Text;
+                  return t.Text;
               }
-              else
-              {
-                foreach (Translation t in o.Translations)
-                {
-                    return t.Text;
-                }
-              }
+          } */
               
           }
       }
