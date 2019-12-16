@@ -1,6 +1,4 @@
 using System;
-using System.ComponentModel.DataAnnotations;
-using Translate=Translator.Domain.Models.Translator;
 
 namespace Translator.Storing.Models
 {

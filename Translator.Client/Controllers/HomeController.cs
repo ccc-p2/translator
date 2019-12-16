@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -16,7 +14,7 @@ namespace Translator.Client.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private MessageRepository _mr = new MessageRepository();
+        private readonly MessageRepository _mr = new MessageRepository();
 
         public HomeController(ILogger<HomeController> logger)
         {
